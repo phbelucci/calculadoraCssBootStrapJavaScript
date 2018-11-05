@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>calculadora</title>
+
+    <!-- Bootstrap -->
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="estilo.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+
+    <script type="text/javascript">
+      
+      function calcular(){
+          
+          var operacao = document.getElementById('operacao').value;
+          var num1 = document.getElementById('num1').value;
+          var num2 = document.getElementById('num2').value;
+          var resultado = null;
+
+          num1 = parseFloat(num1);
+          num2 = parseFloat(num2);
+
+          if(num1 == '' || num1 == null){
+            alert('Favor digitar um número válido (num1)');
+            return false;
+          }
+          if(num2 == '' || num2 == null){
+            alert('Favor digitar um número válido (num2)');
+            return false;
+          }
+
+          switch(operacao){
+            case '1': //adição
+              resultado = num1 + num2;
+              
+              break;
+
+            case '2': //subtração
+              resultado = num1 - num2;
+              
+              break;
+
+            case '3': //Multiplicação
+              resultado = num1 * num2;
+              
+              break;
+
+            case '4': //divisão
+              resultado = num1 / num2;
+             
+              break;
+
+            default: //default
+              alert('A opção selecionada é inválida');
+              return false;
+          }
+          
+          document.getElementById('resultado').value = resultado;
+          
+
+
+        }
+
+
+    </script>
+
+    <div class="container">
+      <div class="jumbotron">
+        <h1>CALCULADORA</h1>
+      </div>
+      <hr/>
+
+      <div class="row">
+        <div class="col-md-4">
+          <input id="num1" type="text" name="form-control" placeholder="Primeiro número: " />
+        </div>
+
+        <div class="col-md-4">
+          <select id="operacao" class="form-control">
+            <option value="">Selecione a operação</option>
+            <option value="1">Adição</option>
+            <option value="2">Subtração</option>
+            <option value="3">Multiplicação</option>
+            <option value="4">Divisão</option>
+          </select>
+        </div> <!-- Encerra select -->
+        
+        <div class="col-md-4">
+          <input id="num2" type="text" name="form-control" placeholder="Segundo número: "  />
+        </div>
+        
+      </div>
+      <hr/>
+
+      <div class="row">
+        
+        <div class="col-md-4">
+          <button  type="button" class="btn btn-lg btn-info pull-right" onclick="calcular()">Calcular</button>
+        </div>
+      </div>
+
+      <hr/>
+
+      <div class="well col-md-12">
+        Resultado: <input id="resultado" type="text" name="form-control" readonly/>
+      </div>
+
+    </div> <!-- Encerra container principal -->
+
+
+
+
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="bootstrap/js/bootstrap.min.js"></script>
+  </body>
+</html>
